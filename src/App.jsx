@@ -5,9 +5,11 @@ const PlaceValueBinaryConverter = () => {
   const placeValues = [16, 8, 4, 2, 1];
 
   const toggleBit = (index) => {
-    const newBinary = [...binary];
-    newBinary[index] = 1 - newBinary[index];
-    setBinary(newBinary);
+    setBinary(prevBinary => {
+      const newBinary = [...prevBinary];
+      newBinary[index] = 1 - newBinary[index];
+      return newBinary;
+    });
   };
 
   const calculateDenary = () => {
